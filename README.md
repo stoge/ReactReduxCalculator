@@ -15,4 +15,7 @@ To run the project:
 ```bash
 $ npm start
 ```    
+ * [Calculator Template](https://bootsnipp.com/snippets/kW9gA) on Bootsnip, special thanks to Opeyemi15
+
+
 Enjoy :D
