@@ -3,7 +3,8 @@ var math = require('mathjs');
 const initialState = {
     display: '',
     expression: [],
-    operatorFlag: false
+    operatorFlag: false,
+    resultFlag: false
 }
 
 let properExpression = (operator, state) => {
@@ -13,8 +14,8 @@ let properExpression = (operator, state) => {
 export default function calculatorReducer(state = initialState, action) {
     switch (action.type) {
         case 'INPUT_NUMBER':
-            let newNumber = state.operatorFlag ? action.number : (state.expression.length === 0 ? action.number : state.display + action.number);
-            return {...state, display: newNumber, operatorFlag: false }
+            let newNumber = (state.operatorFlag || state.resultFlag) ? action.number : (state.display + action.number);
+            return {...state, display: newNumber, operatorFlag: false, resultFlag: false }
 
         case 'PLUS':
             return {
@@ -51,6 +52,8 @@ export default function calculatorReducer(state = initialState, action) {
                 ...state,
                 display: result,
                 expression: [],
+                resultFlag: true
+
             }
 
         default:

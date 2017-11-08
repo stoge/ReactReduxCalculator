@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     return {
         display: state.display,
         expression: state.expression,
-        operatorFlag: state.operatorFlag
+        operatorFlag: state.operatorFlag,
+        resultFlag: state.resultFlag
     }
 }
 
